@@ -16,26 +16,30 @@ def create_surface(
     show_color:bool = False
 ):
     """
-    Create a surface mesh in Gmsh from a text file with coordinates.
+    Create a surface mesh in Gmsh from a text file with x, y, z coordinates.
+    txt struc:
+
+    |   id    |    x    |    y    |    z    |
+    
+    n rows x 4 columns!
 
     Parameters:
         surf_id (int): Surface identifier, used for tagging.
         file_name (str): Path to text file with x,y,z data.
-        samx (int): Number of samples in x-direction.
-        samy (int): Number of samples in y-direction.
-        v_ex (float): Vertical exaggeration factor.
-        base_level (float): Base elevation level to offset z-coordinates.
-        show_color (bool): Whether to create a colored view of elevation.
+        samx (int): Number of columns in the sampled grid (along X-axis).
+        samy (int): Number of rows in the sampled grid (along Y-axis).
+        v_ex (float): Vertical exaggeration factor applied to z-values.
+        show_color (bool): Whether to display the surface with color mapping based on z values.
     """
     Nx = samx - 1
     Ny = samy -1
     
-    # Cargar datos y extraer dimensiones
+    # Load data and extract dimensions:
     data = np.loadtxt(f"layers/{file_name}", skiprows=1)
     id = (surf_id-1) * 10
 
 
-    #Defining extend from txt file
+    # Defining extend from txt file
     min_x = np.min(data[:, 1])
     max_x = np.max(data[:, 1])
     min_y = np.min(data[:, 2])
@@ -49,29 +53,29 @@ def create_surface(
     x = np.linspace(min_x, max_x, num=samx, endpoint=True)   
     y = np.linspace(min_y, max_y, num=samy, endpoint=True)
 
-    #Creacion de puntos en malla
+    # GRID based on data:
     X, Y = np.meshgrid(x, y, indexing='xy')
     Y = Y[::-1, :]
     
-    # Helper function to return a node tag given three indices i, j and k:
+    # Helper function to return a node tag given indices i and j:
     def tag(i, j):
         return ((Ny + 1) * i + j + 1) 
         
-    # coordenadas de todos los nodos
+    # Coordinates list
     coords = []
-    # tag de los nodos
+    # tag list
     nodes = []
-    # conectividad de elementos triangualares  (3 tags de nodo por triangulo):
+    # traingular-element connectivity  (3 node tags per triangle):
     tris = []
-    #conectividad de los elementos linea en los 4 limites
+    # line element connectivity on the four boundaries
     lin = [[], [], [], []]
     
-    #conectividad de los elementos punto en las cuatro esquinas
+    # point element connectivity at the four corners
     pnt = [tag(0, Ny), tag(Nx, Ny), tag(Nx, 0), tag(0, 0)]
 
-    #Llenado de los vectores creados anteriormente:
-    for i in range( Nx + 1):    #columnas
-        for j in range( Ny, -1, -1 ):      #filas
+    # Populate the previously created vectors:
+    for i in range( Nx + 1):    #column
+        for j in range( Ny, -1, -1 ):      #row
             nodes.append(tag(i, j))
             coords.extend([X[j, i], Y[j, i], Z[j, i]])
             if i > 0 and j > 0:
@@ -82,48 +86,48 @@ def create_surface(
             if (j == 0 or j == Ny) and i > 0:
                 lin[0 if j == 0 else 2].extend([tag(i - 1, j), tag(i, j)])
                 
-    # Crear 4 puntos discretos para las cuadro esquinas del terreno:
+    # Create 4 discrete points for the four corners of the terrain:
     for i in range(4):
         gmsh.model.addDiscreteEntity(0, i + 1 + id)
         
-    # Modifico las coordenadas de los puntos creadores anteriormente
+    # Modify the coordinates of the points created earlier
     gmsh.model.setCoordinates(1 + id, min_x, min_y, coords[3 * tag(0, 0) - 1])
     gmsh.model.setCoordinates(2 + id, max_x, min_y, coords[3 * tag(Nx, 0) - 1])
     gmsh.model.setCoordinates(3 + id, max_x, max_y, coords[3 * tag(Nx, Ny) - 1])
     gmsh.model.setCoordinates(4 + id, min_x, max_y, coords[3 * tag(0, Ny) - 1])
 
-    # Crear 4 curvas de borde del terreno con los puntos anteriores:
+    # Create 4 boundary curves of the terrain using the previous points:
     for i in range(4):
         gmsh.model.addDiscreteEntity(1, i + 1 + id, [i + 1 + id, i + 2 + id if i < 3 else 1 + id])
 
-    # Crear una superficie con las curvas creadas anteriormente:
+    # Create a surface using the previously created curves:
     gmsh.model.addDiscreteEntity(2, 1 + id, [1 + id, 2 + id, 3 + id, 4 + id])
 
-    # Agregar todos los nodos en la superficie (for simplicity... see below):
+    # Add all nodes to the surface:
     gmsh.model.mesh.addNodes(2, 1 + id, nodes, coords)
 
     for i in range(4):
-        #elementos punto
+        # point elements
         gmsh.model.mesh.addElementsByType(i + 1 + id, 15, [], [pnt[i]])
-        #elementos linea 2 nodos
+        # line elements (2 nodes)
         gmsh.model.mesh.addElementsByType(i + 1 + id, 1, [], lin[i])
-    #elementos triangulo 3 nodos
+    # triangle elements (3 nodos)
     gmsh.model.mesh.addElementsByType(1 + id, 2, [], tris)
 
 
     
-    # Crear una vista coloreada por el valor de Z (elevación)
+    # Generate a color-mapped view based on Z (elevation)
 
     if show_color == True:
-        view_tag = gmsh.view.add(f"Z_surface_{surf_id}")
-        z_only = [[z] for z in coords[2::3]]  # Extraer cada tercer valor de coords = Z
+        view_tag = gmsh.view.add(f"height_{surf_id}")
+        z_only = [[z] for z in coords[2::3]]  # xtract every third value from coords = Z
         gmsh.view.addModelData(
             view_tag,
-            0,                          # paso de tiempo (0 si no hay simulación)
-            gmsh.model.getCurrent(),   # nombre del modelo actual
-            "NodeData",                # tipo de datos
-            nodes,                     # tags de nodo
-            z_only                     # valores escalares por nodo (Z)
+            0,                          # time step. Do not delete
+            gmsh.model.getCurrent(),   # current model name
+            "NodeData",                # data type
+            nodes,                     # nodes tag (list)
+            z_only                     # Scalar values per node (Z)
     )
 
     print(f"Superficie {surf_id } successfully created.")
@@ -132,7 +136,7 @@ def volume_generation(
     num_loaded_surfaces: int = 2
 ):
     """
-    Generates 3D volumes from a stack of loaded geological surfaces.
+    Generates 3D volumes from a stack of loaded geological surfaces. Returns a list of the created volumes.
 
     Parameters:
     -----------
@@ -140,18 +144,17 @@ def volume_generation(
         Total number of 2D surfaces loaded into the model.
         Must be >= 2. One volume is created between each pair of consecutive surfaces.
     """
-    # Reclasificar los nodos en las curvas y puntos (since we put them all on the surface before with `addNodes' for simplicity)
+    # Reclassify the nodes on the curves and points (since we previously added them all to the surface using 'addNodes' for simplicity)
     gmsh.model.mesh.reclassifyNodes()
 
-    # Crear una geometria para las curvas discretas y superficie, de forma que se puede remallarlas
-    # luego:
+    # Create a geometry from the discrete curves and surface, so that they can be remeshed later:
     gmsh.model.mesh.createGeometry()
 
     vertical_union = {}
     surfaces = {}
     volume = []
 
-    for j in range (num_loaded_surfaces - 1):  #cantidad de superficies menos 1
+    for j in range (num_loaded_surfaces - 1):  # Number of surfaces minus 1
         for i in range(1,5):
             #Creating vertical lines conection between each surface
             k= i + j * 10
@@ -185,7 +188,7 @@ def add_well(
 
     """
     Create a well with a trajectory defined by a txt file.
-    txt contains points along the well. 
+    txt contains points along the well. Returns a list of lines tags belonging to the well.
     txt struc:
 
     |   id    |    x    |    y    |    z    |
@@ -198,25 +201,28 @@ def add_well(
         surf_id: ID of the top surface (e.g., topography). This is the surface that contains the top of the well.  
         well_id: ID of the well user-defined.
     """
-    #Archivo de texto con x, y, z_top y z_base. Estos puntos pueden ser extraidos de Qgis por muestreo a lo largo de la falla en cada superfice
+    # Text file with x, y, z for each point belonging to the well trajectory. 
     well_txt = np.loadtxt(f"wells/{file_name}", skiprows=1)
 
     x = well_txt[:, 1]  
     y = well_txt[:, 2]
     z = well_txt[:, 3] * v_ex
     
- # #Agrega punto del tope
+    # Create a list using well points
     well_points  = []
     for xi, yi, zi in zip(x, y, z):
         tag = gmsh.model.geo.addPoint(xi,yi,zi)
         well_points.append(tag)
-    
+        
+    # Generate lines by connecting points from the list well_points
     well_line  = []
     for i in range(len(well_points) - 1):
         tag = gmsh.model.geo.addLine(well_points[i], well_points[i+1])
         well_line.append(tag)
 
     gmsh.model.geo.synchronize()
+    
+    # Embedding points and lines to the mesh
     gmsh.model.mesh.embed(0, [well_points[0]], 2, 1+10*(surf_id-1))
     gmsh.model.mesh.embed(1, well_line, 3, surf_id)
     gmsh.model.geo.synchronize()
@@ -234,43 +240,43 @@ def add_fault(
     fault_len: float = 1000.,
 ):
     """
-    Create a fault that intercepts surface only.
+    Create a fault that intercepts one specified surface only. Returns a list of surface tags belonging to the fault.
+    txt struc:
+
+    |   id    |    x    |    y    |    z    |
+     
+    n rows x 4 columns!
 
     Parameters:
         file_name (str): Path to text file with x,y,z data.
         v_ex (float): Vertical exaggeration factor.
-        lc: (float): longitud caracteristica
+        surf_id (int): ID of the top surface (e.g., topography). This is the surface that is being intercepted by the fault.
+        fault_id (int): ID of the fault user-defined.
+        dip (float): dip, Common parameter in geology for fault description.
+        dip_dir (float): dip direction, Common parameter in geology for fault description.
+        fault_len (float): fault length.
     """
-    #Archivo de texto con x, y, z_top y z_base. Estos puntos pueden ser extraidos de Qgis por muestreo a lo largo de la falla en cada superfice
+    # Loading TXT file of the fault curve at surface
     fault_txt = np.loadtxt(f"faults/{file_name}", skiprows=1)
 
     x = fault_txt[:, 1]  
     y = fault_txt[:, 2]
-    z_top = fault_txt[:, 3]*v_ex
+    z_top = fault_txt[:, 3] * v_ex
 
-    #Agrega los puntos del tope
+    # Add points of the fault curve at surface
     top_points  = []
     for xi, yi, zi in zip(x, y, z_top):
         tag = gmsh.model.geo.addPoint(xi,yi,zi)
         top_points.append(tag)
 
-    #Agrega los puntos de la base
-    # base_points  = []
-    # for xi, yi, zi in zip(x, y, z_base):
-    #     tag = gmsh.model.geo.addPoint(xi,yi,zi)
-    #     base_points.append(tag)
-
     line_top = []
-    #line_base = []
 
-    #creando una linea con puntos del tope y otra con puntos de base
+    # Generate a line by connecting points from the list top_points
     for i in range(len(top_points) - 1):
         line_tag = gmsh.model.geo.addLine(top_points[i], top_points[i+1])
         line_top.append(line_tag)
-    
-        # line_tag = gmsh.model.geo.addLine(base_points[i], base_points[i+1])
-        # line_base.append(line_tag)
 
+    # Here extrusion capabilities are used to generate the fault surface
     to_extrude = [(1, tag) for tag in line_top]
 
 
@@ -303,22 +309,10 @@ def add_fault(
         print("dip_dir should be 0-359°")
         
     
-    # Extrusión lineal:
+    # Linear extrusion:
     extruded = gmsh.model.geo.extrude(to_extrude, dx, dy, dz)
     sect_fault = [e[1] for e in extruded if e[0] == 2]
 
-    # vertical_line = []
-    # #creando lineas verticales
-    # for i in range(len(top_points)):
-    #     tag = gmsh.model.geo.addLine(top_points[i], base_points[i])
-    #     vertical_line.append(tag)
-    
-
-    # sect_fault = [] 
-    # for i in range(len(top_points) - 1):   
-    #     loop = gmsh.model.geo.addCurveLoop([line_top[i], vertical_line[i+1], -line_base[i], -vertical_line[i]])
-    #     tag = gmsh.model.geo.addPlaneSurface([loop])
-    #     sect_fault.append(tag)
     gmsh.model.geo.synchronize()
     gmsh.model.mesh.embed(0, top_points, 2, 1+10*(surf_id-1))
     gmsh.model.mesh.embed(1, line_top, 2, 1+10*(surf_id-1))
@@ -336,7 +330,18 @@ def local_refinement(
     Dist_Min: int = 10000,
     Dist_Max: int = 30000
 ):
+    """
+    Gmsh supports the generation of locally refined meshes, the local_refinement function integrates these capabilities and facilitates their application to the     surfaces, wells and faults previously loaded.
 
+    Parameters:
+        element_type (str): Specify the type of element. Choose from “well”, “fault” or “surface”. 
+        element_list (list): For wells and faults, provide the list returned by the corresponding function. For surfaces, specify the surface ID (surf_id)                                    enclosed in square brackets (e.g., [1]). 
+        sampling (int): Defines how many points are sampled along the feature’s geometry to guide local mesh refinement.  
+        Size_Min (int): Specifies the minimum element size allowed during mesh refinement. 
+        Size_Max (int): Specifies the maximum element size allowed during mesh generation. 
+        Dist_Min (int): Defines the minimum radius around a feature within which the specified Size_Min is strictly enforced.
+        Dist_Max (int): Defines the maximum distance (radius) over which mesh refinement can influence element size. 
+    """
     gmsh.model.mesh.reclassifyNodes()
     gmsh.model.geo.removeAllDuplicates()
     gmsh.model.geo.synchronize()
@@ -403,6 +408,13 @@ def physical_group(
     element_type: str,
     element_list: list
 ):
+    """
+    Geo2Gmsh offers an adapted version of Gmsh’s physical group assignment to automatically assign physical group IDs to wells, faults, surfaces or vaolumes.
+
+    Parameters:
+        element_type (str): Specify the type of element. Choose from “well”, “fault”. “Surface” or “volume”.  
+        element_list (list): For wells and faults, provide the list returned by the corresponding function. For surfaces and volumes, specify the surface ID                                (surf_id) or volume ID enclosed in square brackets (e.g., [1]). 
+    """
     gmsh.model.geo.synchronize()
     
     global counter1
