@@ -49,7 +49,7 @@ def create_surface(
     z = data[:, 3] * v_ex
     Z = np.reshape(z, [samy, samx])
 
-    # Creacion de arrays en ejes x e y
+    # Create arrays along x and y axis:
     x = np.linspace(min_x, max_x, num=samx, endpoint=True)   
     y = np.linspace(min_y, max_y, num=samy, endpoint=True)
 
@@ -70,7 +70,7 @@ def create_surface(
     # line element connectivity on the four boundaries
     lin = [[], [], [], []]
     
-    # point element connectivity at the four corners
+    # Point element connectivity at the four corners
     pnt = [tag(0, Ny), tag(Nx, Ny), tag(Nx, 0), tag(0, 0)]
 
     # Populate the previously created vectors:
@@ -182,7 +182,6 @@ def volume_generation(
 def add_well(
     file_name: str,
     v_ex: float = 1,
-    surf_id: int = 1,
     well_id:int = 1
 ):
 
@@ -197,39 +196,58 @@ def add_well(
     
     Parameters:
         file_name (str): Path to text file with x,y,z data.
-        v_ex (float): Vertical exaggeration factor.
-        surf_id: ID of the top surface (e.g., topography). This is the surface that contains the top of the well.  
+        v_ex (float): Vertical exaggeration factor. 
         well_id: ID of the well user-defined.
     """
     # Text file with x, y, z for each point belonging to the well trajectory. 
-    well_txt = np.loadtxt(f"wells/{file_name}", skiprows=1)
+    well_txt = np.loadtxt(f"wells/{file_name}", skiprows=1, dtype=float)
 
     x = well_txt[:, 1]  
     y = well_txt[:, 2]
     z = well_txt[:, 3] * v_ex
+    surf_ids = well_txt[:, 0] 
     
     # Create a list using well points
-    well_points  = []
+    well_points = []
     for xi, yi, zi in zip(x, y, z):
-        tag = gmsh.model.geo.addPoint(xi,yi,zi)
+        tag = gmsh.model.geo.addPoint(xi, yi, zi)
         well_points.append(tag)
         
-    # Generate lines by connecting points from the list well_points
-    well_line  = []
+    gmsh.model.geo.synchronize()
+
+    # Create well sections
+    sections = []  # list of lists of line IDs
+    current_section = []
+
     for i in range(len(well_points) - 1):
-        tag = gmsh.model.geo.addLine(well_points[i], well_points[i+1])
-        well_line.append(tag)
+    # Generate lines by connecting points from the list well_points
+        line_tag = gmsh.model.geo.addLine(well_points[i], well_points[i+1])
+        current_section.append(line_tag)
+
+        if not np.isnan(surf_ids[i]):
+            gmsh.model.mesh.embed(0, [well_points[i]], 2, 1+10*int(surf_ids[i]-1))
+
+            
+        # If the next point has a surf_id, we close the section
+        if not np.isnan(surf_ids[i+1]):
+            sections.append(current_section)
+            current_section = []
+            
+    # Add the last section if it remains pending
+    if current_section:
+        sections.append(current_section) 
 
     gmsh.model.geo.synchronize()
-    
-    # Embedding points and lines to the mesh
-    gmsh.model.mesh.embed(0, [well_points[0]], 2, 1+10*(surf_id-1))
-    gmsh.model.mesh.embed(1, well_line, 3, surf_id)
+    for i, sec in enumerate(sections):
+        gmsh.model.mesh.embed(1, sec, 3, i+1)
+
+    well_line = [line for sec in sections for line in sec]
+
     gmsh.model.geo.synchronize()
     print(f"Well {well_id} succesfully created.")
     return well_line
     
-    
+
 def add_fault(
     file_name: str,
     v_ex: float = 1,

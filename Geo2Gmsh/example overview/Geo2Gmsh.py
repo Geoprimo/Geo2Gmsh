@@ -208,7 +208,7 @@ def add_well(
     surf_ids = well_txt[:, 0] 
     
     # Create a list using well points
-        well_points = []
+    well_points = []
     for xi, yi, zi in zip(x, y, z):
         tag = gmsh.model.geo.addPoint(xi, yi, zi)
         well_points.append(tag)
