@@ -1,4 +1,395 @@
-# Geo2Gmsh
-This contribution presents Geo2Gmsh, a modular Python workflow that extends Gmsh’s accessibility and capabilities, providing a streamlined solution for geoscientists conducting numerical simulations. The workflow enables the automated generation of 3D unstructured geological meshes from text files (.txt) containing x, y, and z coordinates sampled from irregular surfaces, faults, and wells. Local mesh refinement around these topological elements is straightforward, and physical group identifiers can be assigned easily for use with external numerical solvers. As a result, Geo2Gmsh simplifies the meshing process and reduces the learning curve for users with limited experience.
+# **Geo2Gmsh**
 
-Despite these advantages, some limitations remain: (1) faults can intersect only a single interface, (2) relative movement along faults cannot be simulated, and (3) internal bodies within layers are not yet supported. While certain issues can be addressed within numerical solvers, they will be resolved in future releases.
+
+
+Geo2Gmsh is a Python-based workflow for automated geological mesh generation using Gmsh.
+
+It provides a streamlined solution for geoscientists conducting numerical simulations using the Finite Element Method (FEM) by enabling the construction of realistic geological meshes through high-level functions.
+
+
+
+Key features, including topography and geological interfaces, can be directly incorporated into the mesh, together with structural elements such as faults and wells. The proposed workflow streamlines mesh generation while lowering the barrier to entry for users with limited experience in mesh construction.
+
+
+
+!\[overview](./docs/images/overview.png)
+
+
+
+#### **🌍 Overview**
+
+
+
+Geo2Gmsh enables the automated generation of 3D unstructured geological meshes from simple input files.
+
+The workflow operates on text files (.txt) containing triplets of spatial coordinates (x, y, z) representing points that define:
+
+
+
+* Horizontal or near-horizontal surfaces representing topography or lithological interfaces
+* Steep surfaces representing faults
+* Linear trajectories representing wells
+
+
+
+###### **Key capabilities include:**
+
+
+
+* Automatic construction of geological surfaces and volumes
+* Integration of faults and wells into the mesh
+* Local refinement around geological features
+* Assignment of physical group identifiers for use in external numerical solvers
+* Export of mesh files in common formats (e.g., .msh, .vtk, etc)
+
+
+
+As a result, Geo2Gmsh offers a reproducible and efficient pipeline for the generation of meshes suitable for geoscientific simulations.
+
+
+
+
+
+#### **📦 Repository Structure**
+
+
+
+Geo2Gmsh/
+
+│
+
+├── Geo2Gmsh.py                 # Core module with mesh generation functions
+
+├── test\_checksum.py            # Run a test of the examples meshes to ensure reproducibility
+
+├── README.md                   # Project overview and instructions
+
+├── LICENSE                     # License information
+
+├── environment.yml             # Conda environment configuration
+
+├── requirements.txt            # Python dependencies
+
+├── docs/                       # Documentation folder
+
+│   ├── images/                 # Folder for images used in documentation
+
+│   ├── user\_guide.md           # Detailed user guide for Geo2Gmsh
+
+│
+
+└── examples/                   # Folder with example workflows
+
+&#x20;   ├── overview/               # Example 1: Overview example workflow
+
+&#x20;   │   ├── run\_overview.py     # Executable workflow
+
+&#x20;   │   ├── master\_script.ipynb # Interactive notebook to configure and customize workflow
+
+&#x20;   │   ├── outputs/            # Folder for generated results (e.g., .msh, .vtk)
+
+&#x20;   │   └── data/               # Input datasets (.txt)
+
+&#x20;   │       ├── layers/         # Interface definitions from (x, y, z) coordinate triplets
+
+&#x20;   │       ├── wells/          # Well trajectory data from (x, y, z) coordinate triplets
+
+&#x20;   │       └── faults/         # Fault traces defined from (x, y, z) coordinate triplets
+
+&#x20;   │
+
+&#x20;   ├── test\_ringvent/           # Example 2: Ringvent example workflow
+
+&#x20;   │   ├── run\_ringvent.py      # Executable workflow
+
+&#x20;   │   ├── master\_script.ipynb
+
+&#x20;   │   ├── outputs/
+
+&#x20;   │   └── data/
+
+&#x20;   │       ├── layers/
+
+&#x20;   │       ├── wells/
+
+&#x20;   │       └── faults/
+
+&#x20;   │
+
+&#x20;   └── test\_llanos/             # Example 3: Llanos example workflow
+
+&#x20;       ├── run\_llanos.py        # Executable workflow
+
+&#x20;       ├── master\_script.ipynb
+
+&#x20;       ├── outputs/
+
+&#x20;       └── data/
+
+&#x20;           ├── layers/
+
+&#x20;           ├── wells/
+
+&#x20;           └── faults/
+
+
+
+Each example is self-contained and fully reproducible.
+
+
+
+
+
+# **Quick Start**
+
+
+
+#### **⚙️ Installation**
+
+
+
+After installing Anaconda (version 23.11.0 or later) on your system, follow these steps from an Anaconda Prompt:
+
+
+
+1. ###### **Clone repository**
+
+
+
+git clone http://github.com/Geoprimo/Geo2Gmsh.git
+
+
+
+###### **2. Navigate into the repository**
+
+
+
+cd Geo2Gmsh
+
+
+
+###### **3. Create environment**
+
+
+
+To create the execution environment, run one of the following options:
+
+
+
+###### **Method 1**
+
+
+
+conda create -n Geo2Gmsh python=3.11 -y
+
+conda activate Geo2Gmsh
+
+pip install -r requirements.txt
+
+
+
+###### **Method 2**
+
+###### 
+
+conda env create -f environment.yml
+
+conda activate Geo2Gmsh
+
+&#x20;
+
+#### **▶️ Running the Workflows**
+
+
+
+Each example can be executed directly from the Anaconda Prompt without modifying the source code.
+
+
+
+###### **Example 1**
+
+&#x20;
+
+cd examples/overview
+
+python run\_overview.py
+
+
+
+###### **Example 2**
+
+
+
+cd examples/test\_ringvent
+
+python run\_ringvent.py
+
+
+
+###### **Example 3**
+
+
+
+cd examples/test\_llanos
+
+python run\_llanos.py
+
+
+
+
+
+#### **🔄 Workflow Description**
+
+
+
+The workflow is provided in two complementary formats:
+
+
+
+* master\_script.ipynb
+
+This is the main interactive notebook where the workflow is configured and adapted to specific datasets. It is intended for users who want to modify input data, parameters, or geological settings.
+
+
+
+* run\_overview.py
+
+This script version of the notebook is designed for execution from the terminal. It allows users to run predefined examples directly, without modifying the code.
+
+
+
+To apply the workflow to a different dataset or case study, users should update the master\_script.ipynb accordingly and, if necessary, adapt the corresponding .py script
+
+
+
+#### **➡️ Pipeline Overview**
+
+
+
+Each master\_script.ipynb and run\_overview.py script executes a complete, reproducible pipeline consisting of the following steps:
+
+
+
+1\. Parsing and triangulating geological surfaces
+
+2\. Building closed volumetric models
+
+3\. Embedding well geometries
+
+4\. Embedding fault geometries
+
+5\. Applying local mesh refinement
+
+6\. Assigning physical IDs
+
+7\. Exporting to standard formats (e.g., .msh, .vtk, etc.)
+
+
+
+#### **📂 Input Data**
+
+
+
+Each example includes input files classified into some folders located in the data/ directory.
+
+
+
+* layers
+* wells
+* faults
+
+
+
+
+
+For a complete description of input file formats and examples, see the User Guide in the docs/ directory.
+
+
+
+#### **📤 Output Files**
+
+
+
+Generated meshes are written to the outputs/ directory:
+
+
+
+* .msh  native Gmsh format
+* .vtk  visualization and simulation format
+
+
+
+If additional file formats (e.g., .exo) are required, the meshio package can be used to export meshes to other supported extensions.
+
+
+
+#### **🧠 Code Structure**
+
+
+
+The file Geo2Gmsh.py contains the core functionality:
+
+
+
+* create\_surface → generate near-horizontal geological surfaces
+
+
+
+* volume\_generation → build lateral surfaces to enclose volumes
+
+
+
+* add\_fault → define fault geometries
+
+
+
+* add\_well → define well trajectories
+
+
+
+* local\_refinement → apply mesh refinement around interfaces, faults and wells
+
+
+
+* physical\_group → assign physical regions
+
+
+
+The module is imported directly within each workflow script.
+
+
+
+#### **🔁 Reproducibility**
+
+
+
+This repository provides fully reproducible workflows:
+
+
+
+Executable scripts (run\_example.py) for each case study
+
+
+
+All required input data included
+
+
+
+Environment specification via requirements.txt and environment.yml files.
+
+
+
+Deterministic mesh generation controlled by a checksum test (test\_checksum.py)
+
+
+
+#### **🧩 Requirements**
+
+
+
+\- Python = 3.11.15
+
+\- Gmsh = 4.15.1
+
+\- numpy = 2.4.3
+
