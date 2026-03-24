@@ -224,11 +224,8 @@ Although the well is assumed to be vertical in this example, the methodology is 
 
 
 
-For the generation of the input text file, the previously created DEM was sampled along a synthetic fault trace. In this workflow, faults are defined as intersecting a single reference surface. This surface is typically the topography, although faults can also be associated with subsurface geological interfaces. In all cases, the fault definition is constructed from the reference surface downward.
+For the generation of the input text file, the previously created DEM was sampled along a synthetic fault trace. In this workflow, faults are defined as intersecting a single reference surface. This surface is typically the topography, although faults can also be associated with subsurface geological interfaces. In all cases, the fault definition is constructed from the reference surface downward (see previous Figure).
 
-
-
-Figure X. DEM showing the sampling of points along the fault trace and the resulting input data.
 
 
 
