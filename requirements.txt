@@ -1,0 +1,4 @@
+python==3.11.15
+gmsh==4.15.1
+numpy==2.4.3
+notebook==6.5.7

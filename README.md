@@ -12,7 +12,7 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-!\[overview](docs/images/overview.png) 
+!\[overview](docs/images/overview.png)
 
 
 
@@ -236,6 +236,14 @@ python run\_llanos.py
 
 
 
+Then,
+
+
+
+python test\_checksum.py
+
+
+
 
 
 #### **🔄 Workflow Description**
@@ -363,23 +371,33 @@ The module is imported directly within each workflow script.
 
 
 
-This repository provides fully reproducible workflows:
+Each example workflow includes all required components for end-to-end reproducibility:
 
 
 
-Executable scripts (run\_example.py) for each case study
+\- Raw input files (data/)
+
+\- Executable scripts (run\_\*.py)
+
+\- Output files (outputs/)
+
+\- Environment specifications (requirements.txt, environment.yml)
 
 
 
-All required input data included
+To ensure consistent results across platforms, a checksum-based validation is provided.
 
 
 
-Environment specification via requirements.txt and environment.yml files.
+After running any workflow, results can be verified using:
 
 
 
-Deterministic mesh generation controlled by a checksum test (test\_checksum.py)
+python test\_checksum.py
+
+
+
+This script verifies that generated meshes match reference outputs.
 
 
 
