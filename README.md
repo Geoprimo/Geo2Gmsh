@@ -12,7 +12,9 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-!\[cover](docs/images/cover.png)
+<img src="docs/images/cover.png" alt="cover" width="500"/>
+
+
 
 #### **🌍 Overview**
 
@@ -291,6 +293,8 @@ Each master\_script.ipynb and run\_overview.py script executes a complete, repro
 7\. Exporting to standard formats (e.g., .msh, .vtk, etc.)
 
 <img src="docs/images/pipeline.png" alt="pipeline" width="400"/>
+
+
 
 #### **📂 Input Data**
 
