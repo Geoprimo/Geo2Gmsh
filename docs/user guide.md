@@ -602,7 +602,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 ```
 Argument	        | Description
 
-num\_loaded\_surfaces	| Number of surfaces loaded using create\_surface().
+num_loaded_surfaces	| Number of surfaces loaded using create\_surface().
 ```
 
 Steps performed:
