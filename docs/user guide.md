@@ -296,7 +296,37 @@ The (x, y, z) triplets in /faults/**fault\_4**.txt are imported as points in Gms
 
 
 
+#### 5.5 local\_refinement function
+
+
+
+In a Jupyter Notebook, local\_refinement requires the following parameters:
+
+&#x20;	
+
+**Geo2Gmsh. local\_refinement (“surface”, \[2], 1000, 0.4, 0.8, 2, 3)** 
+
+Geo2Gmsh defines three custom object types: “surface”, “fault”, and “well”, to support local refinement. In the example above, the resolution is increased around the “surface” object type (first parameter), with ID 2 (second parameter). Notice the use of quotation marks and square brackets in the function arguments to achieve this. In our example in Fig. 1b, this will refine the bottom part of the model. The node interpolation process is guided by the following series of parameters: 1000 sampling points, a minimum element size of 0.4, a maximum element size of 0.8, a minimum distance of 2, and a maximum distance of 3. The minimum element size is enforced within the minimum distance from the target object, whereas the maximum element size is reached beyond the maximum distance. Between these distances, a transition zone is defined in which the element size increases smoothly from 0.4 to 0.8. (see the section 10 for further details on these parameters). Fig. 1e illustrates the mesh obtained after applying the local refinement routine to well\_1, fault\_4, and surface \[2].
+
+
+
+#### 5.6 physical\_group function
+
+
+
+In a Jupyter Notebook, the physical\_group function is invoked as follows:
+
+&#x20;	
+
+**Geo2Gmsh. physical\_group (“volume”, volumes)**
+
+Similarly to the previous function, the physical\_group routine requires specifying an object type, which can be one of the following: volume, surface, fault, or well. In this example, a physical group ID is assigned to a “volume” object type as indicated by the first parameter. The second parameter defines the list of ID elements to be grouped within the physical group. Here, the variable volumes contain a single element, \[1], corresponding to the ID of the only volume created so far. All elements belonging to a physical group are then exported as part of the mesh where the appropriate boundary conditions and material parameter values can be assigned. For further clarification on assigning physical group IDs to wells and faults, refer to the section 10.
+
+
+
 <img src="images/overview.png" alt="overview" width="1000"/>
+
+
 
 ## 6\. Basic usage (master script)
 
