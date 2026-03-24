@@ -54,6 +54,8 @@ As a result, Geo2Gmsh offers a reproducible and efficient pipeline for the gener
 
 
 
+```
+
 Geo2Gmsh/
 
 │
@@ -132,7 +134,7 @@ Geo2Gmsh/
 
 &#x20;           └── faults/
 
-
+```
 
 Each example is self-contained and fully reproducible.
 
