@@ -289,7 +289,7 @@ Each master\_script.ipynb and run\_overview.py script executes a complete, repro
 
 7\. Exporting to standard formats (e.g., .msh, .vtk, etc.)
 
-<img src="pipeline.png" alt="pipeline" width="600"/>
+<img src="overview.png" alt="Overview" width="500"/>
 
 #### **📂 Input Data**
 
