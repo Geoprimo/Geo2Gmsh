@@ -296,7 +296,7 @@ The (x, y, z) triplets in /faults/**fault\_4**.txt are imported as points in Gms
 
 
 
-<img src="images/overview.png" alt="overview" width="500"/>
+<img src="images/overview.png" alt="overview" width="1000"/>
 
 ## 6\. Basic usage (master script)
 
