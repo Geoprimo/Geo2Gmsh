@@ -428,9 +428,9 @@ Wells:
 
 
 
-ringvent: wells drilled at sites U1547 and U1548, integrated as vertical trajectories using log reports and core-recovery data.
+ringvent: wells drilled at sites U1547 and U1548, integrated as vertical trajectories using log reports and core-recovery data ([Teske et al. (2021)](https://doi.org/10.14379/iodp.proc.385.105.2021)).
 
-llanos: eleven well trajectories obtained from publicly available well data, discretized along their depth to intersect model surfaces.
+llanos: eleven well trajectories obtained from publicly available well data, discretized along their depth to intersect model surfaces ([Buitrago et al., 2024](https://doi.org/10.1016/j.tecto.2024.230413)).
 
 
 
