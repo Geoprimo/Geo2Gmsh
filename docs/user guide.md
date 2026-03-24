@@ -336,7 +336,7 @@ The master\_script is organized into eight main sections:
 
 
 
-1. Libraries: Section where the required Python libraries are imported.
+1\. Libraries: Section where the required Python libraries are imported.
 
 Do not modify.
 
@@ -564,6 +564,7 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 Argument	| Description
 
+<<<<<<< HEAD
 ----------------|--------------------------------------------------------------------
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface.
@@ -571,6 +572,15 @@ file		| Name of the .txt file containing (x, y, z) coordinates of the surface.
 n\_rows		| Number of rows in the grid used to reconstruct the surface.
 
 n\_cols		| Number of columns in the grid used to reconstruct the surface.
+=======
+file		      Name of the .txt file containing (x, y, z) coordinates of the surface.
+
+n\_rows		    Number of rows in the grid used to reconstruct the surface.
+
+n\_cols		    Number of columns in the grid used to reconstruct the surface.
+
+scale		      Vertical exaggeration factor applied to the z values.
+>>>>>>> 83ce35635711408bc1a48e5382f65fc69c3c2a9b
 
 scale		| Vertical exaggeration factor applied to the z values.
 
