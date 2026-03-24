@@ -312,12 +312,6 @@ For detailed descriptions of the input file formats and example files, please re
 
 
 
-
-
-For a complete description of input file formats and examples, see the User Guide in the docs/ directory.
-
-
-
 #### **📤 Output Files**
 
 
