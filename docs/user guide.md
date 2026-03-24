@@ -418,7 +418,7 @@ Surfaces:
 
 ringvent: high-resolution bathymetry from [Teske et al. (2021)](https://doi.org/10.14379/iodp.proc.385.105.2021) was used to define the topography.
 
-llanos: topography from a digital elevation model obtained via GeoMapApp, and Moho and basement surfaces derived from CRUST1.0 and interpolation of well data ([Buitrago et al., 2024](https://doi.org/10.1016/j.tecto.2024.230413); Alfaro et al., 2015).
+llanos: topography from a digital elevation model obtained via [GeoMapApp](https://www.geomapapp.org), and Moho and basement surfaces derived from CRUST1.0 and interpolation of well data ([Buitrago et al., 2024](https://doi.org/10.1016/j.tecto.2024.230413); Alfaro et al., 2015).
 
 DEMs were resampled on regular grids to generate structured coordinate triplets suitable for the create\_surface function.
 
