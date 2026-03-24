@@ -11,7 +11,7 @@ It provides a streamlined solution for geoscientists conducting numerical simula
 Key features, including topography and geological interfaces, can be directly incorporated into the mesh, together with structural elements such as faults and wells. The proposed workflow streamlines mesh generation while lowering the barrier to entry for users with limited experience in mesh construction.
 
 
-
+![cover](docs/images/cover.png)
 
 #### **🌍 Overview**
 
