@@ -457,7 +457,7 @@ This section presents the typical workflow for generating a geological mesh usin
 
 
 
-1. Prepare Input Files
+1\. Prepare Input Files
 * Generate or collect input data for surfaces, wells, and faults in .txt format.
 * Ensure surfaces are sampled on a regular or structured grid.
 * Mark well-surface intersections explicitly using IDs.
