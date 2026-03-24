@@ -59,19 +59,21 @@ Geo2Gmsh generates geological meshes from simple text-based input files. Each fi
 The create\_surface function requires a text file with the following structured format, including a header row:
 
 
+
 ```
-ID      x               y               z
+ID      x	         y	         z
 
-1	3.062124248     3.062124248	1.020297847
+1	3.062124248	3.062124248	1.020297847
 
-2	3.160320641     3.062124248	1.006273848
+2	3.160320641	3.062124248	1.006273848
 
-3	3.258517034     3.062124248	0.991875861
+3	3.258517034	3.062124248	0.991875861
 
-4	3.356713427     3.062124248	0.976597975
+4	3.356713427	3.062124248	0.976597975
 
 ...
 ```
+
 
 
 Each row contains:
@@ -99,19 +101,21 @@ The add\_well function defines well trajectories that may intersect multiple geo
 The required format is:
 
 
-```
-ID      x               y                z
 
-1       34.95501375 	12.09621247	-0.75742
+```
+ID      x	        y	         z
+
+1       34.95501375	12.09621247	-0.75742
 
 NaN     34.95501375	12.09621247	-1.5124452
 
-NaN     34.95501375 	12.09621247 	-2.5124452
+NaN     34.95501375	12.09621247	-2.5124452
 
-NaN     34.95501375 	12.09621247 	-3.5124452
+NaN     34.95501375	12.09621247	-3.5124452
 
-2       34.95501375 	12.09621247 	-4.5124452
+2       34.95501375	12.09621247	-4.5124452
 ```
+
 
 
 Each row contains:
@@ -145,6 +149,7 @@ The well trajectory must be discretized continuously from the surface to the tar
 The add\_fault function requires sampling the intersection between the fault and a geological surface. The sampled points are stored in a text file with the following format:
 
 
+
 ```
 ID	x	        y	        z
 
@@ -158,6 +163,7 @@ ID	x	        y	        z
 
 5	20.0401595	15.22959876	0.39276455
 ```
+
 
 
 Each row contains:
@@ -566,10 +572,10 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 Argument	| Description
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface
-n\_rows		| Number of rows in the grid used to reconstruct the surface
-n\_cols		| Number of columns in the grid used to reconstruct the surface
+n\\\_rows		| Number of rows in the grid used to reconstruct the surface
+n\\\_cols		| Number of columns in the grid used to reconstruct the surface
 scale		| Vertical exaggeration factor applied to the z values
-show\_colors	| If True, the surface is rendered with interpolated colors based on elevation
+show\\\_colors	| If True, the surface is rendered with interpolated colors based on elevation
 ```
 
 Steps performed:
@@ -601,7 +607,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 ```
 Argument	        | Description
 
-num\_loaded\_surfaces	| Number of surfaces loaded using create\_surface().
+num\\\_loaded\\\_surfaces	| Number of surfaces loaded using create\\\_surface().
 ```
 
 Steps performed:
@@ -623,9 +629,9 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 ```
 Argument	| Description
 
-file\_name	| .txt file with the well trajectory.
-v\_ex		| Vertical exaggeration factor; must match create\_surface.
-well\_id		| Unique identifier for the well.
+file\\\_name	| .txt file with the well trajectory.
+v\\\_ex		| Vertical exaggeration factor; must match create\\\_surface.
+well\\\_id		| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -655,13 +661,13 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 ```
 Argument	| Description
 
-file\_name	| .txt file with the fault trace.
-v\_ex		| Vertical exaggeration factor; must match create\_surface.
-surf\_id		| Surface ID intercepted by the fault.
-fault\_id	| Unique identifier for the fault.
+file\\\_name	| .txt file with the fault trace.
+v\\\_ex		| Vertical exaggeration factor; must match create\\\_surface.
+surf\\\_id		| Surface ID intercepted by the fault.
+fault\\\_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip\_dir		| Dip direction (azimuth in degrees from north to down-dip).
-fault\_len	| Fault length (same units as input coordinates).
+dip\\\_dir		| Dip direction (azimuth in degrees from north to down-dip).
+fault\\\_len	| Fault length (same units as input coordinates).
 ```
 
 
@@ -691,13 +697,13 @@ Note: Ensure the fault points are ordered along the trace and sampled at a resol
 ```
 Argument	| Description
 
-element\_type	| Type of element: "well", "fault", or "surface".
-element\_list	| List of IDs or outputs from previous functions specifying the feature to refine.
+element\\\_type	| Type of element: "well", "fault", or "surface".
+element\\\_list	| List of IDs or outputs from previous functions specifying the feature to refine.
 sampling	| Number of points sampled along the feature to guide refinement.
-size\_min	| Minimum element size allowed.
-size\_max	| Maximum element size allowed.
-dist\_min	| Minimum radius around the feature where size\_min is enforced.
-dist\_max	| Maximum radius of influence for the refinement.
+size\\\_min	| Minimum element size allowed.
+size\\\_max	| Maximum element size allowed.
+dist\\\_min	| Minimum radius around the feature where size\\\_min is enforced.
+dist\\\_max	| Maximum radius of influence for the refinement.
 ```
 
 Steps performed:
@@ -719,8 +725,8 @@ Note: See the case study section for examples of how to provide element\_list co
 ```
 Argument	| Description
 
-element\_type	| Type of element: "well", "fault", "surface", or "volume".
-element\_list	| List of elements or IDs to include in the physical group.
+element\\\_type	| Type of element: "well", "fault", "surface", or "volume".
+element\\\_list	| List of elements or IDs to include in the physical group.
 ```
 
 
