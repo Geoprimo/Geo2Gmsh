@@ -572,10 +572,7 @@ scale		| Vertical exaggeration factor applied to the z values
 show_colors	| If True, the surface is rendered with interpolated colors based on elevation
 ```
 
-
-
 Steps performed:
-
 
 
 Reads and parses the input file containing (x, y, z) points.
@@ -626,12 +623,10 @@ file_name	| .txt file with the well trajectory.
 
 v_ex		| Vertical exaggeration factor; must match create\_surface.
 
-well_id	| Unique identifier for the well.
+well_id	        | Unique identifier for the well.
 ```
 
-
 Steps performed:
-
 
 
 Reads and parses the well trajectory (x, y, z) points and surface intersection IDs.
@@ -653,23 +648,23 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 5.4 add\_fault(file\_name, v\_ex, surf\_id, fault\_id, dip, dip\_dir, fault\_len)
 
 
+```
+Argument	| Description
 
-Argument	Description
+file_name	| .txt file with the fault trace.
 
-file\_name	.txt file with the fault trace.
+v_ex		| Vertical exaggeration factor; must match create\_surface.
 
-v\_ex		Vertical exaggeration factor; must match create\_surface.
+surf_id	        | Surface ID intercepted by the fault.
 
-surf\_id		Surface ID intercepted by the fault.
+fault_id	| Unique identifier for the fault.
 
-fault\_id	Unique identifier for the fault.
+dip		| Dip angle (degrees) of the fault relative to horizontal.
 
-dip		Dip angle (degrees) of the fault relative to horizontal.
+dip_dir	        | Dip direction (azimuth in degrees from north to down-dip).
 
-dip\_dir		Dip direction (azimuth in degrees from north to down-dip).
-
-fault\_len	Fault length (same units as input coordinates).
-
+fault_len	| Fault length (same units as input coordinates).
+```
 
 
 Steps performed:
