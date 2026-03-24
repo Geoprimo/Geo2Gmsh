@@ -470,7 +470,7 @@ This section presents the typical workflow for generating a geological mesh usin
 
 * Import required Python libraries in the master script.
 * Initialize Gmsh and define the model name.
-* Set global parameters such as vertical exaggeration, mesh size, and physical group counters.
+* Set global parameters such as vertical exaggeration and  mesh size.
 
 
 
