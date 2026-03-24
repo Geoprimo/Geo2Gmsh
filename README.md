@@ -11,7 +11,8 @@ It provides a streamlined solution for geoscientists conducting numerical simula
 Key features, including topography and geological interfaces, can be directly incorporated into the mesh, together with structural elements such as faults and wells. The proposed workflow streamlines mesh generation while lowering the barrier to entry for users with limited experience in mesh construction.
 
 
-![cover](docs/images/cover.png)
+
+!\[cover](docs/images/cover.png)
 
 #### **🌍 Overview**
 
@@ -295,13 +296,19 @@ Each master\_script.ipynb and run\_overview.py script executes a complete, repro
 
 
 
-Each example includes input files classified into some folders located in the data/ directory.
+## Input Data
+
+Each example comes with input files organized into specific folders within the data/ directory:
 
 
 
-* layers
-* wells
-* faults
+* **layers/** – Contains files describing geological layers.
+* **wells/** – Contains well data files.
+* **faults/** – Contains fault data files.
+
+
+
+For detailed descriptions of the input file formats and example files, please refer to the **User Guide** located in the docs/ directory.
 
 
 
