@@ -16,7 +16,7 @@ It includes workflow explanations, input data specifications, and step-by-step i
 
 
 
-We designed Geo2Gmsh as a modular and scriptable Python-based workflow that automates the generation of unstructured 3D meshes from geological and geophysical data. The workflow integrates Gmsh via its Python API and allows users to process input data derived from GIS software, geological modeling tools, or general computing environments such as MATLAB. 
+We designed Geo2Gmsh as a modular and scriptable Python-based workflow that automates the generation of unstructured 3D meshes from geological and geophysical data. The workflow integrates Gmsh via its Python API and allows users to process input data derived from GIS software, geological modeling tools, or general computing environments such as MATLAB.
 
 
 
@@ -24,17 +24,17 @@ The workflow was implemented on Jupyter Notebook (https://jupyter.org), an open-
 
 
 
-1\. Parsing and triangulating geological surfaces  
+1\. Parsing and triangulating geological surfaces
 
-2\. Building closed volumetric models  
+2\. Building closed volumetric models
 
-3\. Embedding well geometries  
+3\. Embedding well geometries
 
-4\. Embedding fault geometries  
+4\. Embedding fault geometries
 
-5\. Applying local mesh refinement  
+5\. Applying local mesh refinement
 
-6\. Assigning physical IDs  
+6\. Assigning physical IDs
 
 7\. Exporting mesh files
 
@@ -178,7 +178,7 @@ Additional geometric parameters such as dip, dip direction, and fault height are
 
 
 
-#### 4.1 Preprocessing for create\_surface 
+#### 4.1 Preprocessing for create\_surface
 
 
 
@@ -248,7 +248,7 @@ In a Jupyter Notebook, the create\_surface function is called using the followin
 
 **Geo2Gmsh.create\_surface (1, “layer\_1.txt”, 50, 50, 1, False)**
 
-Notice the use of the dot notation to call the function. This instruction creates a surface with ID number **1**; the surface is rendered from a discrete series of values stored in the file layers/**layer\_1.txt** in the local directory; the values are defined on a regular orthogonal grid of **50** rows by **50** columns. The fifth entry specifies that the surface height must be scaled by a factor of **1** (vertical exaggeration). Enabling the last parameter by setting it to True allows the rendering of the surface using an interpolated color palette based on the node elevation. In our example, we disabled this option by setting it as **False**. Once the function is executed, a pop-up window will display the output (Fig. 1a). 
+Notice the use of the dot notation to call the function. This instruction creates a surface with ID number **1**; the surface is rendered from a discrete series of values stored in the file layers/**layer\_1.txt** in the local directory; the values are defined on a regular orthogonal grid of **50** rows by **50** columns. The fifth entry specifies that the surface height must be scaled by a factor of **1** (vertical exaggeration). Enabling the last parameter by setting it to True allows the rendering of the surface using an interpolated color palette based on the node elevation. In our example, we disabled this option by setting it as **False**. Once the function is executed, a pop-up window will display the output (Fig. 1a).
 
 
 
@@ -268,7 +268,7 @@ The command above instructs Gmsh to build a volumetric mesh of polyhedra. The va
 
 
 
-#### 5.3 add\_well function 
+#### 5.3 add\_well function
 
 
 
@@ -296,7 +296,7 @@ The (x, y, z) triplets in /faults/**fault\_4**.txt are imported as points in Gms
 
 
 
-
+<img src="docs/images/overview.png" alt="overview" width="800"/>
 
 ## 6\. Basic usage (master script)
 
