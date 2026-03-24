@@ -558,7 +558,7 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 
 
-5.1 create\_surface(file, n\_rows, n\_cols, scale, show\_colors)
+####5.1 create\_surface(file, n\_rows, n\_cols, scale, show\_colors)
 
 
 
@@ -594,7 +594,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 
 
 
-5.2 volume\_generation(num\_loaded\_surfaces)
+####5.2 volume\_generation(num\_loaded\_surfaces)
 
 
 
@@ -616,7 +616,7 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 
 
 
-5.3 add\_well(file\_name, v\_ex, well\_id)
+####5.3 add\_well(file\_name, v\_ex, well\_id)
 
 
 
@@ -648,7 +648,7 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 
 
 
-5.4 add\_fault(file\_name, v\_ex, surf\_id, fault\_id, dip, dip\_dir, fault\_len)
+####5.4 add\_fault(file\_name, v\_ex, surf\_id, fault\_id, dip, dip\_dir, fault\_len)
 
 
 
@@ -684,7 +684,7 @@ Note: Ensure the fault points are ordered along the trace and sampled at a resol
 
 
 
-5.5 local\_refinement(element\_type, element\_list, sampling, size\_min, size\_max, dist\_min, dist\_max)
+####5.5 local\_refinement(element\_type, element\_list, sampling, size\_min, size\_max, dist\_min, dist\_max)
 
 
 ```
@@ -712,7 +712,7 @@ Note: See the case study section for examples of how to provide element\_list co
 
 
 
-5.6 physical\_group(element\_type, element\_list)
+####5.6 physical\_group(element\_type, element\_list)
 
 ```
 Argument	| Description
