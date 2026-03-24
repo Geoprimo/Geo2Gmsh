@@ -82,7 +82,7 @@ Geo2Gmsh/
 
 └── examples/                   # Folder with example workflows
 
-         ├── overview/               # Example 1: Overview example workflow
+	 ├── overview/               # Example 1: Overview example workflow
 
    	 │   ├── run\_overview.py     # Executable workflow
 
