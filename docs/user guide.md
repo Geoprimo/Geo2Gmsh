@@ -336,7 +336,7 @@ The master\_script is organized into eight main sections:
 
 
 
-1. Libraries: Section where the required Python libraries are imported.
+1\. Libraries: Section where the required Python libraries are imported.
 
 Do not modify.
 
