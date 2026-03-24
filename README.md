@@ -154,7 +154,7 @@ After installing Anaconda (version 23.11.0 or later) on your system, follow thes
 
 
 
-1. ###### **Clone repository**
+###### **1. Clone repository**
 
 
 
