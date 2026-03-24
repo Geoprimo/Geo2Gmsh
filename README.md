@@ -12,7 +12,7 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-![Overview](https://github.com/Geoprimo/Geo2Gmsh/blob/6c799ee27cab1b4615bf63f303f07e3a08c241d8/overview.png)
+![Overview](overview.png)
 
 
 
