@@ -12,7 +12,7 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-!\[overview](./docs/images/overview.png)
+!\[overview](docs/images/overview.png)
 
 
 
