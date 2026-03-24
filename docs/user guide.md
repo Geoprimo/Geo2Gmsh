@@ -253,6 +253,7 @@ In a Jupyter Notebook, the create\_surface function is called using the followin
 
 Notice the use of the dot notation to call the function. This instruction creates a surface with ID number **1**; the surface is rendered from a discrete series of values stored in the file layers/**layer\_1.txt** in the local directory; the values are defined on a regular orthogonal grid of **448** rows by **448** columns. The fifth entry specifies that the surface height must be scaled by a factor of **1** (vertical exaggeration). Enabling the last parameter by setting it to True allows the rendering of the surface using an interpolated color palette based on the node elevation. In our example, we disabled this option by setting it as **False**. Once the function is executed, a pop-up window will display the output (Fig. 1a).
 
+<img src="images/overview.png" alt="overview" width="1200"/>
 
 
 #### 5.2 volume\_generation function
@@ -325,9 +326,6 @@ In a Jupyter Notebook, the physical\_group function is invoked as follows:
 
 Similarly to the previous function, the physical\_group routine requires specifying an object type, which can be one of the following: volume, surface, fault, or well. In this example, a physical group ID is assigned to a “volume” object type as indicated by the first parameter. The second parameter defines the list of ID elements to be grouped within the physical group. Here, the variable volumes contain a single element, \[1], corresponding to the ID of the only volume created so far. All elements belonging to a physical group are then exported as part of the mesh where the appropriate boundary conditions and material parameter values can be assigned. For further clarification on assigning physical group IDs to wells and faults, refer to the section 10.
 
-
-
-<img src="images/overview.png" alt="overview" width="1200"/>
 
 
 
