@@ -212,7 +212,7 @@ For the overview example, a synthetic well trajectory was defined by manually co
 
 
 
-Figure X. Example of well trajectory defined in a text file.
+<img src="images/faults_wells.png" alt="faults wells" width="1200"/>
 
 
 
