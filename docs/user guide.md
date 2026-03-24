@@ -601,7 +601,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 ```
 Argument	        | Description
 
-num_loaded_surfaces	| Number of surfaces loaded using create\\\_surface().
+num_loaded_surfaces	| Number of surfaces loaded using create_surface().
 ```
 
 Steps performed:
@@ -624,8 +624,8 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 Argument	| Description
 
 file_name	| .txt file with the well trajectory.
-v_ex		| Vertical exaggeration factor; must match create\\\_surface.
-well_id	| Unique identifier for the well.
+v_ex		| Vertical exaggeration factor; must match create_surface.
+well_id		| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -656,11 +656,11 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 Argument	| Description
 
 file_name	| .txt file with the fault trace.
-v_ex		| Vertical exaggeration factor; must match create\\\_surface.
-surf_id	| Surface ID intercepted by the fault.
+v_ex		| Vertical exaggeration factor; must match create_surface.
+surf_id		| Surface ID intercepted by the fault.
 fault_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip_dir	| Dip direction (azimuth in degrees from north to down-dip).
+dip_dir		| Dip direction (azimuth in degrees from north to down-dip).
 fault_len	| Fault length (same units as input coordinates).
 ```
 
@@ -695,7 +695,7 @@ element_list	| List of IDs or outputs from previous functions specifying the fea
 sampling	| Number of points sampled along the feature to guide refinement.
 size_min	| Minimum element size allowed.
 size_max	| Maximum element size allowed.
-dist_min	| Minimum radius around the feature where size\_min is enforced.
+dist_min	| Minimum radius around the feature where size_min is enforced.
 dist_max	| Maximum radius of influence for the refinement.
 ```
 
@@ -714,11 +714,12 @@ Note: See the case study section for examples of how to provide element\_list co
 
 5.6 physical\_group(element\_type, element\_list)
 
+```
 Argument	| Description
 
 element_type	| Type of element: "well", "fault", "surface", or "volume".
 element_list	| List of elements or IDs to include in the physical group.
-
+```
 
 
 Steps performed:
