@@ -599,15 +599,13 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 5.2 volume\_generation(num\_loaded\_surfaces)
 
 
+```
+Argument	        | Description
 
-Argument		Description
-
-num\_loaded\_surfaces	Number of surfaces loaded using create\_surface().
-
-
+num\_loaded\_surfaces	| Number of surfaces loaded using create\_surface().
+```
 
 Steps performed:
-
 
 
 Creates vertical lines connecting vertices of consecutive surfaces.
