@@ -619,15 +619,15 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 5.3 add\_well(file\_name, v\_ex, well\_id)
 
 
+```
+Argument	| Description
 
-Argument	Description
+file_name	| .txt file with the well trajectory.
 
-file\_name	.txt file with the well trajectory.
+v_ex		| Vertical exaggeration factor; must match create\_surface.
 
-v\_ex		Vertical exaggeration factor; must match create\_surface.
-
-well\_id		Unique identifier for the well.
-
+well_id	| Unique identifier for the well.
+```
 
 
 Steps performed:
