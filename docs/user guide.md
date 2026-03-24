@@ -403,7 +403,7 @@ From the Anaconda Prompt. This script compares the generated mesh with the refer
 
 
 
-Geo2Gmsh workflows rely on structured input files representing geological surfaces, wells, and faults. The data included in the llanos and Ringvent examples originate from real geological datasets:
+Geo2Gmsh workflows rely on structured input files representing geological surfaces, wells, and faults. The data included in the Llanos and Ringvent examples originate from real geological datasets:
 
 
 
