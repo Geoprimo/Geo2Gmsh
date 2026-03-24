@@ -90,6 +90,8 @@ Geo2Gmsh/
 
 	 │   ├── outputs/            # Folder for generated results (e.g., .msh, .vtk)
 
+	 │   ├── preprocessing/      # Folder for QGIS project and related files
+
 	 │   └── data/               # Input datasets (.txt)
 
 	 │       ├── layers/         # Interface definitions from (x, y, z) coordinate triplets
