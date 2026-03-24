@@ -12,9 +12,6 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-!\[Overview] (docs/images/cover.png)
-
-
 
 #### **🌍 Overview**
 
