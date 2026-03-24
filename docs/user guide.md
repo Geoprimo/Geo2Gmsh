@@ -200,7 +200,7 @@ where ID is the point identifier and x is the x-coordinate. The resulting point 
 
 
 
-<img src="images/dem_details.png" alt="DEM details" width="800"/>
+<img src="images/dem_details.png" alt="DEM details" width="1200"/>
 
 
 
