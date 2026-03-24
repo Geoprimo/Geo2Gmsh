@@ -601,7 +601,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 ```
 Argument	        | Description
 
-num\_loaded\_surfaces	| Number of surfaces loaded using create\\\_surface().
+num_loaded_surfaces	| Number of surfaces loaded using create\\\_surface().
 ```
 
 Steps performed:
@@ -623,9 +623,9 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 ```
 Argument	| Description
 
-file\_name	| .txt file with the well trajectory.
-v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-well\_id	| Unique identifier for the well.
+file_name	| .txt file with the well trajectory.
+v_ex		| Vertical exaggeration factor; must match create\\\_surface.
+well_id	| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -655,13 +655,13 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 ```
 Argument	| Description
 
-file\_name	| .txt file with the fault trace.
-v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-surf\_id	| Surface ID intercepted by the fault.
-fault\_id	| Unique identifier for the fault.
+file_name	| .txt file with the fault trace.
+v_ex		| Vertical exaggeration factor; must match create\\\_surface.
+surf_id	| Surface ID intercepted by the fault.
+fault_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip\_dir	| Dip direction (azimuth in degrees from north to down-dip).
-fault\_len	| Fault length (same units as input coordinates).
+dip_dir	| Dip direction (azimuth in degrees from north to down-dip).
+fault_len	| Fault length (same units as input coordinates).
 ```
 
 
