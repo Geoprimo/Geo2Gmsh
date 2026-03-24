@@ -82,57 +82,57 @@ Geo2Gmsh/
 
 └── examples/                   # Folder with example workflows
 
-&#x20;   ├── overview/               # Example 1: Overview example workflow
+         ├── overview/               # Example 1: Overview example workflow
 
-&#x20;   │   ├── run\_overview.py     # Executable workflow
+   	 │   ├── run\_overview.py     # Executable workflow
 
-&#x20;   │   ├── master\_script.ipynb # Interactive notebook to configure and customize workflow
+	 │   ├── master\_script.ipynb # Interactive notebook to configure and customize workflow
 
-&#x20;   │   ├── outputs/            # Folder for generated results (e.g., .msh, .vtk)
+	 │   ├── outputs/            # Folder for generated results (e.g., .msh, .vtk)
 
-&#x20;   │   └── data/               # Input datasets (.txt)
+	 │   └── data/               # Input datasets (.txt)
 
-&#x20;   │       ├── layers/         # Interface definitions from (x, y, z) coordinate triplets
+	 │       ├── layers/         # Interface definitions from (x, y, z) coordinate triplets
 
-&#x20;   │       ├── wells/          # Well trajectory data from (x, y, z) coordinate triplets
+ 	 │       ├── wells/          # Well trajectory data from (x, y, z) coordinate triplets
 
-&#x20;   │       └── faults/         # Fault traces defined from (x, y, z) coordinate triplets
+	 │       └── faults/         # Fault traces defined from (x, y, z) coordinate triplets
 
-&#x20;   │
+	 │
 
-&#x20;   ├── test\_ringvent/           # Example 2: Ringvent example workflow
+	 ├── test\_ringvent/           # Example 2: Ringvent example workflow
 
-&#x20;   │   ├── run\_ringvent.py      # Executable workflow
+	 │   ├── run\_ringvent.py      # Executable workflow
 
-&#x20;   │   ├── master\_script.ipynb
+	 │   ├── master\_script.ipynb
 
-&#x20;   │   ├── outputs/
+	 │   ├── outputs/
 
-&#x20;   │   └── data/
+	 │   └── data/
 
-&#x20;   │       ├── layers/
+	 │       ├── layers/
 
-&#x20;   │       ├── wells/
+	 │       ├── wells/
 
-&#x20;   │       └── faults/
+	 │       └── faults/
 
-&#x20;   │
+	 │
 
-&#x20;   └── test\_llanos/             # Example 3: Llanos example workflow
+	 └── test\_llanos/             # Example 3: Llanos example workflow
 
-&#x20;       ├── run\_llanos.py        # Executable workflow
+	       ├── run\_llanos.py        # Executable workflow
 
-&#x20;       ├── master\_script.ipynb
+	       ├── master\_script.ipynb
 
-&#x20;       ├── outputs/
+	       ├── outputs/
 
-&#x20;       └── data/
+	       └── data/
 
-&#x20;           ├── layers/
+	           ├── layers/
 
-&#x20;           ├── wells/
+	           ├── wells/
 
-&#x20;           └── faults/
+	           └── faults/
 
 ```
 
