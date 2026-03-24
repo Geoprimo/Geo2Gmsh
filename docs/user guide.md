@@ -59,7 +59,7 @@ Geo2Gmsh generates geological meshes from simple text-based input files. Each fi
 The create\_surface function requires a text file with the following structured format, including a header row:
 
 
-
+```
 ID      x               y               z
 
 1	3.062124248	3.062124248	1.020297847
@@ -71,7 +71,7 @@ ID      x               y               z
 4	3.356713427	3.062124248	0.976597975
 
 ...
-
+```
 
 
 Each row contains:
