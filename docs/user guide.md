@@ -562,17 +562,19 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 
 
-Argument	Description
+Argument	| Description
 
-file		Name of the .txt file containing (x, y, z) coordinates of the surface.
+\----------------|--------------------------------------------------------------------
 
-n\_rows		Number of rows in the grid used to reconstruct the surface.
+file		| Name of the .txt file containing (x, y, z) coordinates of the surface.
 
-n\_cols		Number of columns in the grid used to reconstruct the surface.
+n\_rows		| Number of rows in the grid used to reconstruct the surface.
 
-scale		Vertical exaggeration factor applied to the z values.
+n\_cols		| Number of columns in the grid used to reconstruct the surface.
 
-show\_colors	If True, the surface is rendered with interpolated colors based on elevation.
+scale		| Vertical exaggeration factor applied to the z values.
+
+show\_colors	| If True, the surface is rendered with interpolated colors based on elevation.
 
 
 
