@@ -200,7 +200,7 @@ where ID is the point identifier and x is the x-coordinate. The resulting point 
 
 
 
-!FIGURE DEM from QGIS with regular points and right-side description of some steps to do
+<img src="docs/images/dem_details.png" alt="DEM details" width="800"/>
 
 
 
@@ -252,9 +252,9 @@ In a Jupyter Notebook, the create\_surface function is called using the followin
 
 
 
-**Geo2Gmsh.create\_surface (1, “layer\_1.txt”, 50, 50, 1, False)**
+**Geo2Gmsh.create\_surface (1, “layer\_1.txt”, 448, 448, 1, False)**
 
-Notice the use of the dot notation to call the function. This instruction creates a surface with ID number **1**; the surface is rendered from a discrete series of values stored in the file layers/**layer\_1.txt** in the local directory; the values are defined on a regular orthogonal grid of **50** rows by **50** columns. The fifth entry specifies that the surface height must be scaled by a factor of **1** (vertical exaggeration). Enabling the last parameter by setting it to True allows the rendering of the surface using an interpolated color palette based on the node elevation. In our example, we disabled this option by setting it as **False**. Once the function is executed, a pop-up window will display the output (Fig. 1a).
+Notice the use of the dot notation to call the function. This instruction creates a surface with ID number **1**; the surface is rendered from a discrete series of values stored in the file layers/**layer\_1.txt** in the local directory; the values are defined on a regular orthogonal grid of **448** rows by **448** columns. The fifth entry specifies that the surface height must be scaled by a factor of **1** (vertical exaggeration). Enabling the last parameter by setting it to True allows the rendering of the surface using an interpolated color palette based on the node elevation. In our example, we disabled this option by setting it as **False**. Once the function is executed, a pop-up window will display the output (Fig. 1a).
 
 
 
