@@ -99,7 +99,7 @@ The add\_well function defines well trajectories that may intersect multiple geo
 The required format is:
 
 
-
+```
 ID      x           y           z
 
 1       34.95501375 12.09621247 -0.75742
@@ -111,7 +111,7 @@ NaN     34.95501375 12.09621247 -2.5124452
 NaN     34.95501375 12.09621247 -3.5124452
 
 2       34.95501375 12.09621247 -4.5124452
-
+```
 
 
 Each row contains:
@@ -145,7 +145,7 @@ The well trajectory must be discretized continuously from the surface to the tar
 The add\_fault function requires sampling the intersection between the fault and a geological surface. The sampled points are stored in a text file with the following format:
 
 
-
+```
 ID	x	        y	        z
 
 1	16.89398176	10.70100959	-1.2977821
@@ -157,7 +157,7 @@ ID	x	        y	        z
 4	19.42045782	14.32388093	0.23440473
 
 5	20.0401595	15.22959876	0.39276455
-
+```
 
 
 Each row contains:
