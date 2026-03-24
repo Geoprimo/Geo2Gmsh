@@ -558,7 +558,7 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 
 
-####5.1 create\_surface(file, n\_rows, n\_cols, scale, show\_colors)
+#### 5.1 create\_surface(file, n\_rows, n\_cols, scale, show\_colors)
 
 
 
@@ -566,10 +566,10 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 Argument	| Description
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface
-n_rows		| Number of rows in the grid used to reconstruct the surface
-n_cols		| Number of columns in the grid used to reconstruct the surface
+n\_rows		| Number of rows in the grid used to reconstruct the surface
+n\_cols		| Number of columns in the grid used to reconstruct the surface
 scale		| Vertical exaggeration factor applied to the z values
-show_colors	| If True, the surface is rendered with interpolated colors based on elevation
+show\_colors	| If True, the surface is rendered with interpolated colors based on elevation
 ```
 
 Steps performed:
@@ -594,14 +594,14 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 
 
 
-####5.2 volume\_generation(num\_loaded\_surfaces)
+#### 5.2 volume\_generation(num\_loaded\_surfaces)
 
 
 
 ```
 Argument	        | Description
 
-num_loaded_surfaces	| Number of surfaces loaded using create_surface().
+num\_loaded\_surfaces	| Number of surfaces loaded using create\_surface().
 ```
 
 Steps performed:
@@ -616,16 +616,16 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 
 
 
-####5.3 add\_well(file\_name, v\_ex, well\_id)
+#### 5.3 add\_well(file\_name, v\_ex, well\_id)
 
 
 
 ```
 Argument	| Description
 
-file_name	| .txt file with the well trajectory.
-v_ex		| Vertical exaggeration factor; must match create_surface.
-well_id		| Unique identifier for the well.
+file\_name	| .txt file with the well trajectory.
+v\_ex		| Vertical exaggeration factor; must match create\_surface.
+well\_id		| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -648,20 +648,20 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 
 
 
-####5.4 add\_fault(file\_name, v\_ex, surf\_id, fault\_id, dip, dip\_dir, fault\_len)
+#### 5.4 add\_fault(file\_name, v\_ex, surf\_id, fault\_id, dip, dip\_dir, fault\_len)
 
 
 
 ```
 Argument	| Description
 
-file_name	| .txt file with the fault trace.
-v_ex		| Vertical exaggeration factor; must match create_surface.
-surf_id		| Surface ID intercepted by the fault.
-fault_id	| Unique identifier for the fault.
+file\_name	| .txt file with the fault trace.
+v\_ex		| Vertical exaggeration factor; must match create\_surface.
+surf\_id		| Surface ID intercepted by the fault.
+fault\_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip_dir		| Dip direction (azimuth in degrees from north to down-dip).
-fault_len	| Fault length (same units as input coordinates).
+dip\_dir		| Dip direction (azimuth in degrees from north to down-dip).
+fault\_len	| Fault length (same units as input coordinates).
 ```
 
 
@@ -684,22 +684,24 @@ Note: Ensure the fault points are ordered along the trace and sampled at a resol
 
 
 
-####5.5 local\_refinement(element\_type, element\_list, sampling, size\_min, size\_max, dist\_min, dist\_max)
+#### 5.5 local\_refinement(element\_type, element\_list, sampling, size\_min, size\_max, dist\_min, dist\_max)
+
 
 
 ```
 Argument	| Description
 
-element_type	| Type of element: "well", "fault", or "surface".
-element_list	| List of IDs or outputs from previous functions specifying the feature to refine.
+element\_type	| Type of element: "well", "fault", or "surface".
+element\_list	| List of IDs or outputs from previous functions specifying the feature to refine.
 sampling	| Number of points sampled along the feature to guide refinement.
-size_min	| Minimum element size allowed.
-size_max	| Maximum element size allowed.
-dist_min	| Minimum radius around the feature where size_min is enforced.
-dist_max	| Maximum radius of influence for the refinement.
+size\_min	| Minimum element size allowed.
+size\_max	| Maximum element size allowed.
+dist\_min	| Minimum radius around the feature where size\_min is enforced.
+dist\_max	| Maximum radius of influence for the refinement.
 ```
 
 Steps performed:
+
 
 
 Creates a local refinement field based on the element type.
@@ -712,14 +714,15 @@ Note: See the case study section for examples of how to provide element\_list co
 
 
 
-####5.6 physical\_group(element\_type, element\_list)
+#### 5.6 physical\_group(element\_type, element\_list)
 
 ```
 Argument	| Description
 
-element_type	| Type of element: "well", "fault", "surface", or "volume".
-element_list	| List of elements or IDs to include in the physical group.
+element\_type	| Type of element: "well", "fault", "surface", or "volume".
+element\_list	| List of elements or IDs to include in the physical group.
 ```
+
 
 
 Steps performed:
