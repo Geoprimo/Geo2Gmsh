@@ -625,7 +625,7 @@ Argument	| Description
 
 file\_name	| .txt file with the well trajectory.
 v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-well\_id		| Unique identifier for the well.
+well\_id	| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -657,10 +657,10 @@ Argument	| Description
 
 file\_name	| .txt file with the fault trace.
 v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-surf\_id		| Surface ID intercepted by the fault.
+surf\_id	| Surface ID intercepted by the fault.
 fault\_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip\_dir		| Dip direction (azimuth in degrees from north to down-dip).
+dip\_dir	| Dip direction (azimuth in degrees from north to down-dip).
 fault\_len	| Fault length (same units as input coordinates).
 ```
 
@@ -686,26 +686,20 @@ Note: Ensure the fault points are ordered along the trace and sampled at a resol
 
 5.5 local\_refinement(element\_type, element\_list, sampling, size\_min, size\_max, dist\_min, dist\_max)
 
-Argument	Description
 
-element\_type	Type of element: "well", "fault", or "surface".
+```
+Argument	| Description
 
-element\_list	List of IDs or outputs from previous functions specifying the feature to refine.
-
-sampling	Number of points sampled along the feature to guide refinement.
-
-size\_min	Minimum element size allowed.
-
-size\_max	Maximum element size allowed.
-
-dist\_min	Minimum radius around the feature where size\_min is enforced.
-
-dist\_max	Maximum radius of influence for the refinement.
-
-
+element_type	| Type of element: "well", "fault", or "surface".
+element_list	| List of IDs or outputs from previous functions specifying the feature to refine.
+sampling	| Number of points sampled along the feature to guide refinement.
+size_min	| Minimum element size allowed.
+size_max	| Maximum element size allowed.
+dist_min	| Minimum radius around the feature where size\_min is enforced.
+dist_max	| Maximum radius of influence for the refinement.
+```
 
 Steps performed:
-
 
 
 Creates a local refinement field based on the element type.
@@ -720,11 +714,10 @@ Note: See the case study section for examples of how to provide element\_list co
 
 5.6 physical\_group(element\_type, element\_list)
 
-Argument	Description
+Argument	| Description
 
-element\_type	Type of element: "well", "fault", "surface", or "volume".
-
-element\_list	List of elements or IDs to include in the physical group.
+element_type	| Type of element: "well", "fault", "surface", or "volume".
+element_list	| List of elements or IDs to include in the physical group.
 
 
 
