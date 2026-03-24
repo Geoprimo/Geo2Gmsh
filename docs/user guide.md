@@ -302,9 +302,9 @@ The (x, y, z) triplets in /faults/**fault\_4**.txt are imported as points in Gms
 
 In a Jupyter Notebook, local\_refinement requires the following parameters:
 
-&#x20;	
+&#x20;
 
-**Geo2Gmsh. local\_refinement (“surface”, \[2], 1000, 0.4, 0.8, 2, 3)** 
+**Geo2Gmsh. local\_refinement (“surface”, \[2], 1000, 0.4, 0.8, 2, 3)**
 
 Geo2Gmsh defines three custom object types: “surface”, “fault”, and “well”, to support local refinement. In the example above, the resolution is increased around the “surface” object type (first parameter), with ID 2 (second parameter). Notice the use of quotation marks and square brackets in the function arguments to achieve this. In our example in Fig. 1b, this will refine the bottom part of the model. The node interpolation process is guided by the following series of parameters: 1000 sampling points, a minimum element size of 0.4, a maximum element size of 0.8, a minimum distance of 2, and a maximum distance of 3. The minimum element size is enforced within the minimum distance from the target object, whereas the maximum element size is reached beyond the maximum distance. Between these distances, a transition zone is defined in which the element size increases smoothly from 0.4 to 0.8. (see the section 10 for further details on these parameters). Fig. 1e illustrates the mesh obtained after applying the local refinement routine to well\_1, fault\_4, and surface \[2].
 
@@ -316,7 +316,7 @@ Geo2Gmsh defines three custom object types: “surface”, “fault”, and “w
 
 In a Jupyter Notebook, the physical\_group function is invoked as follows:
 
-&#x20;	
+&#x20;
 
 **Geo2Gmsh. physical\_group (“volume”, volumes)**
 
@@ -564,29 +564,19 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 Argument	| Description
 
-<<<<<<< HEAD
-----------------|--------------------------------------------------------------------
+\----------------|------------------------------------------------------------------------
 
-file		| Name of the .txt file containing (x, y, z) coordinates of the surface.
+file		| Name of the .txt file containing (x, y, z) coordinates of the surface
 
-n\_rows		| Number of rows in the grid used to reconstruct the surface.
+n\_rows		| Number of rows in the grid used to reconstruct the surface
 
-n\_cols		| Number of columns in the grid used to reconstruct the surface.
-=======
-file		      Name of the .txt file containing (x, y, z) coordinates of the surface.
+n\_cols		| Number of columns in the grid used to reconstruct the surface
 
-n\_rows		    Number of rows in the grid used to reconstruct the surface.
+scale		| Vertical exaggeration factor applied to the z values
 
-n\_cols		    Number of columns in the grid used to reconstruct the surface.
+show\_colors	| If True, the surface is rendered with interpolated colors based on elevation
 
-scale		      Vertical exaggeration factor applied to the z values.
->>>>>>> 83ce35635711408bc1a48e5382f65fc69c3c2a9b
-
-scale		| Vertical exaggeration factor applied to the z values.
-
-show\_colors	| If True, the surface is rendered with interpolated colors based on elevation.
-
-
+\----------------|------------------------------------------------------------------------
 
 Steps performed:
 
