@@ -625,7 +625,7 @@ Argument	| Description
 
 file\_name	| .txt file with the well trajectory.
 v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-well\_id	        | Unique identifier for the well.
+well\_id		| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -657,10 +657,10 @@ Argument	| Description
 
 file\_name	| .txt file with the fault trace.
 v\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-surf\_id	        | Surface ID intercepted by the fault.
+surf\_id		| Surface ID intercepted by the fault.
 fault\_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip\_dir	        | Dip direction (azimuth in degrees from north to down-dip).
+dip\_dir		| Dip direction (azimuth in degrees from north to down-dip).
 fault\_len	| Fault length (same units as input coordinates).
 ```
 
