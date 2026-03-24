@@ -62,7 +62,7 @@ Geo2Gmsh/
 
 ├── Geo2Gmsh.py                 # Core module with mesh generation functions
 
-├── test\_checksum.py            # Run a test of the examples meshes to ensure reproducibility
+├── test_checksum.py            # Run a test of the examples meshes to ensure reproducibility
 
 ├── README.md                   # Project overview and instructions
 
@@ -76,7 +76,7 @@ Geo2Gmsh/
 
 │   ├── images/                 # Folder for images used in documentation
 
-│   ├── user\_guide.md           # Detailed user guide for Geo2Gmsh
+│   ├── user_guide.md           # Detailed user guide for Geo2Gmsh
 
 │
 
@@ -84,9 +84,9 @@ Geo2Gmsh/
 
 	 ├── overview/               # Example 1: Overview example workflow
 
-   	 │   ├── run\_overview.py     # Executable workflow
+   	 │   ├── run_overview.py     # Executable workflow
 
-	 │   ├── master\_script.ipynb # Interactive notebook to configure and customize workflow
+	 │   ├── master_script.ipynb # Interactive notebook to configure and customize workflow
 
 	 │   ├── outputs/            # Folder for generated results (e.g., .msh, .vtk)
 
@@ -100,11 +100,11 @@ Geo2Gmsh/
 
 	 │
 
-	 ├── test\_ringvent/           # Example 2: Ringvent example workflow
+	 ├── test_ringvent/           # Example 2: Ringvent example workflow
 
-	 │   ├── run\_ringvent.py      # Executable workflow
+	 │   ├── run_ringvent.py      # Executable workflow
 
-	 │   ├── master\_script.ipynb
+	 │   ├── master_script.ipynb
 
 	 │   ├── outputs/
 
@@ -118,11 +118,11 @@ Geo2Gmsh/
 
 	 │
 
-	 └── test\_llanos/             # Example 3: Llanos example workflow
+	 └── test_llanos/             # Example 3: Llanos example workflow
 
-	       ├── run\_llanos.py        # Executable workflow
+	       ├── run_llanos.py        # Executable workflow
 
-	       ├── master\_script.ipynb
+	       ├── master_script.ipynb
 
 	       ├── outputs/
 
