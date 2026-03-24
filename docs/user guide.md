@@ -416,9 +416,9 @@ Surfaces:
 
 
 
-ringvent: high-resolution bathymetry from Teske et al. (2021) was used to define the topography.
+ringvent: high-resolution bathymetry from [Teske et al. (2021)](https://doi.org/10.14379/iodp.proc.385.105.2021) was used to define the topography.
 
-llanos: topography from a digital elevation model obtained via GeoMapApp, and Moho and basement surfaces derived from CRUST1.0 and interpolation of well data (Buitrago et al., 2024; Alfaro et al., 2015).
+llanos: topography from a digital elevation model obtained via GeoMapApp, and Moho and basement surfaces derived from CRUST1.0 and interpolation of well data ([Buitrago et al., 2024](https://doi.org/10.1016/j.tecto.2024.230413); Alfaro et al., 2015).
 
 DEMs were resampled on regular grids to generate structured coordinate triplets suitable for the create\_surface function.
 
@@ -438,7 +438,7 @@ Faults:
 
 
 
-llanos: basement faults sampled from structural maps (López-Ramos et al., 2022) and modeled as vertical planes with defined height (10 km).
+llanos: basement faults sampled from structural maps ([López-Ramos et al., 2022](https://doi.org/10.29047/01225383.380)) and modeled as vertical planes with defined height (10 km).
 
 
 
@@ -572,10 +572,10 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 Argument	| Description
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface
-n\\\_rows		| Number of rows in the grid used to reconstruct the surface
-n\\\_cols		| Number of columns in the grid used to reconstruct the surface
+n\\\\\\\_rows		| Number of rows in the grid used to reconstruct the surface
+n\\\\\\\_cols		| Number of columns in the grid used to reconstruct the surface
 scale		| Vertical exaggeration factor applied to the z values
-show\\\_colors	| If True, the surface is rendered with interpolated colors based on elevation
+show\\\\\\\_colors	| If True, the surface is rendered with interpolated colors based on elevation
 ```
 
 Steps performed:
@@ -607,7 +607,7 @@ Note: Points (x, y, z) must be ordered west-to-east and north-to-south. Surfaces
 ```
 Argument	        | Description
 
-num\\\_loaded\\\_surfaces	| Number of surfaces loaded using create\\\_surface().
+num\\\\\\\_loaded\\\\\\\_surfaces	| Number of surfaces loaded using create\\\\\\\_surface().
 ```
 
 Steps performed:
@@ -629,9 +629,9 @@ Returns a list of volume IDs generated, used as input for subsequent functions.
 ```
 Argument	| Description
 
-file\\\_name	| .txt file with the well trajectory.
-v\\\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-well\\\_id		| Unique identifier for the well.
+file\\\\\\\_name	| .txt file with the well trajectory.
+v\\\\\\\_ex		| Vertical exaggeration factor; must match create\\\\\\\_surface.
+well\\\\\\\_id		| Unique identifier for the well.
 ```
 
 Steps performed:
@@ -661,13 +661,13 @@ Note: Points must be ordered from shallow to deep, with the first point coincidi
 ```
 Argument	| Description
 
-file\\\_name	| .txt file with the fault trace.
-v\\\_ex		| Vertical exaggeration factor; must match create\\\_surface.
-surf\\\_id		| Surface ID intercepted by the fault.
-fault\\\_id	| Unique identifier for the fault.
+file\\\\\\\_name	| .txt file with the fault trace.
+v\\\\\\\_ex		| Vertical exaggeration factor; must match create\\\\\\\_surface.
+surf\\\\\\\_id		| Surface ID intercepted by the fault.
+fault\\\\\\\_id	| Unique identifier for the fault.
 dip		| Dip angle (degrees) of the fault relative to horizontal.
-dip\\\_dir		| Dip direction (azimuth in degrees from north to down-dip).
-fault\\\_len	| Fault length (same units as input coordinates).
+dip\\\\\\\_dir		| Dip direction (azimuth in degrees from north to down-dip).
+fault\\\\\\\_len	| Fault length (same units as input coordinates).
 ```
 
 
@@ -697,13 +697,13 @@ Note: Ensure the fault points are ordered along the trace and sampled at a resol
 ```
 Argument	| Description
 
-element\\\_type	| Type of element: "well", "fault", or "surface".
-element\\\_list	| List of IDs or outputs from previous functions specifying the feature to refine.
+element\\\\\\\_type	| Type of element: "well", "fault", or "surface".
+element\\\\\\\_list	| List of IDs or outputs from previous functions specifying the feature to refine.
 sampling	| Number of points sampled along the feature to guide refinement.
-size\\\_min	| Minimum element size allowed.
-size\\\_max	| Maximum element size allowed.
-dist\\\_min	| Minimum radius around the feature where size\\\_min is enforced.
-dist\\\_max	| Maximum radius of influence for the refinement.
+size\\\\\\\_min	| Minimum element size allowed.
+size\\\\\\\_max	| Maximum element size allowed.
+dist\\\\\\\_min	| Minimum radius around the feature where size\\\\\\\_min is enforced.
+dist\\\\\\\_max	| Maximum radius of influence for the refinement.
 ```
 
 Steps performed:
@@ -725,8 +725,8 @@ Note: See the case study section for examples of how to provide element\_list co
 ```
 Argument	| Description
 
-element\\\_type	| Type of element: "well", "fault", "surface", or "volume".
-element\\\_list	| List of elements or IDs to include in the physical group.
+element\\\\\\\_type	| Type of element: "well", "fault", "surface", or "volume".
+element\\\\\\\_list	| List of elements or IDs to include in the physical group.
 ```
 
 
