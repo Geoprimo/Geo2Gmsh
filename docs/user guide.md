@@ -566,7 +566,7 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 Argument	| Description
 
-\----------------|------------------------------------------------------------------------
+----------------|------------------------------------------------------------------------
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface
 
@@ -578,7 +578,7 @@ scale		| Vertical exaggeration factor applied to the z values
 
 show\_colors	| If True, the surface is rendered with interpolated colors based on elevation
 
-\----------------|------------------------------------------------------------------------
+----------------|------------------------------------------------------------------------
 
 ```
 
