@@ -543,7 +543,7 @@ Note: Following this workflow ensures that surfaces, wells, and faults are corre
 
 
 
-## 10\. Geo2Gmsh Function Syntax
+## 10\. Geo2Gmsh Functions Syntax
 
 
 
