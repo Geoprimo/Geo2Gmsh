@@ -330,7 +330,7 @@ Similarly to the previous function, the physical\_group routine requires specify
 
 
 
-<img src="images/overview.png" alt="overview" width="1000"/>
+<img src="images/overview.png" alt="overview" width="1200"/>
 
 
 
@@ -702,7 +702,7 @@ element_list	| List of IDs or outputs from previous functions specifying the fea
 sampling	| Number of points sampled along the feature to guide refinement
 size_min	| Minimum element size allowed
 size_max	| Maximum element size allowed
-dist_min	| Minimum radius around the feature where size\_min is enforced
+dist_min	| Minimum radius around the feature where size_min is enforced
 dist_max	| Maximum radius of influence for the refinement
 ```
 
