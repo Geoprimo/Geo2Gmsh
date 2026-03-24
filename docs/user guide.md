@@ -502,7 +502,7 @@ This section presents the typical workflow for generating a geological mesh usin
 6\. Embed Faults
 
 * Call add\_fault for each fault.
-* Provide the input file, vertical exaggeration, surface ID, fault ID, dip, dip direction, and fault length.
+* Provide the input file, vertical exaggeration, surface ID, fault ID, dip, dip direction, and fault height.
 * The function generates extruded surfaces representing the fault plane.
 * The returned surfaces can be used for refinement and physical group assignment.
 
