@@ -564,7 +564,7 @@ The following section details the key Geo2Gmsh functions, their arguments, and t
 
 Argument	| Description
 
-\----------------|--------------------------------------------------------------------
+----------------|--------------------------------------------------------------------
 
 file		| Name of the .txt file containing (x, y, z) coordinates of the surface.
 
