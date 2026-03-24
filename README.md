@@ -12,7 +12,7 @@ Key features, including topography and geological interfaces, can be directly in
 
 
 
-<img src="docs/images/cover.png" alt="cover" width="800"/>
+<img src="docs/images/cover.png" alt="cover" width="1200"/>
 
 
 
