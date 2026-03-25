@@ -333,7 +333,7 @@ Similarly to the previous function, the physical\_group routine requires specify
 
 
 
-The master\_script is organized into eight main sections:
+The master\_script is organized into seven main sections:
 
 
 
