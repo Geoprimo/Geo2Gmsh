@@ -477,7 +477,7 @@ This section presents the typical workflow for generating a geological mesh usin
 3\. Load Geological Surfaces
 
 * Call create\_surface for each surface in top-to-bottom order.
-* Provide the input file path, grid dimensions, vertical exaggeration, and optional color display.
+* Provide the input file name, grid dimensions, vertical exaggeration, and optional color display.
 * Surfaces are automatically triangulated and stored for later use.
 
 
