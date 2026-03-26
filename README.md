@@ -183,23 +183,23 @@ To create the execution environment, run one of the following options:
 ###### **Method 1**
 
 
-
+```bash
 conda create -n Geo2Gmsh python=3.11 -y
 
 conda activate Geo2Gmsh
 
 pip install -r requirements.txt
-
+```
 
 
 ###### **Method 2**
 
 ###### 
-
+```bash
 conda env create -f environment.yml
 
 conda activate Geo2Gmsh
-
+```
 &#x20;
 
 #### **▶️ Running the Workflows**
@@ -213,21 +213,21 @@ Each example can be executed directly from the Anaconda Prompt without modifying
 ###### **Example 1**
 
 &#x20;
-
+```bash
 cd examples/overview
 
 python run\_overview.py
-
+```
 
 
 ###### **Example 2**
 
 
-
+```bash
 cd examples/test\_ringvent
 
 python run\_ringvent.py
-
+```
 
 
 ###### **Example 3**
