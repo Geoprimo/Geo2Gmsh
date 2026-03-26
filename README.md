@@ -233,19 +233,19 @@ python run\_ringvent.py
 ###### **Example 3**
 
 
-
+```bash
 cd examples/test\_llanos
 
 python run\_llanos.py
-
+```
 
 
 Then,
 
 
-
+```bash
 python test\_checksum.py
-
+```
 
 
 
