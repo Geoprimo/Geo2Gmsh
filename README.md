@@ -159,17 +159,17 @@ After installing Anaconda (version 23.11.0 or later) on your system, follow thes
 ###### **1. Clone repository**
 
 
-
+```bash
 git clone http://github.com/Geoprimo/Geo2Gmsh.git
-
+```
 
 
 ###### **2. Navigate into the repository**
 
 
-
+```bash
 cd Geo2Gmsh
-
+```
 
 
 ###### **3. Create environment**
