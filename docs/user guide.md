@@ -393,10 +393,11 @@ python test\_checksum.py
 ```
 
 
-From the Anaconda Prompt. This script compares the generated mesh with the reference version, ensuring that the workflow executes correctly and consistently across different systems.
+From the Anaconda Prompt, this script compares the generated mesh with a reference version, ensuring that the workflow executes correctly and consistently across different systems. After execution, the output indicates whether the test passed, failed, or if any file is missing.
 
 
 <img src="images/checksum.png" alt="check example" width="800"/>
+Which informs you the test was ok, failed or the file is misiing.
 
 
 Due to file size limitations on GitHub, reference outputs are not distributed with the repository but are available for download and can be placed in the corresponding output directories. Although not required for execution, as checksum values are included in the validation script.
