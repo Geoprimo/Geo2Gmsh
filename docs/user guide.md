@@ -388,9 +388,9 @@ Additionally, a .vtk version of the mesh is created in the outputs/ folder. This
 For reproducibility, you can verify that the generated meshes match the reference outputs by running:
 
 
-
+bash´´´
 python test\_checksum.py
-
+´´´
 
 
 From the Anaconda Prompt. This script compares the generated mesh with the reference version, ensuring that the workflow executes correctly and consistently across different systems (see README file).
