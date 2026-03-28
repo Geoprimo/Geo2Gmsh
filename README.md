@@ -2,6 +2,8 @@
 
 
 
+[![DOI](https://zenodo.org/badge/1058315065.svg)](https://doi.org/10.5281/zenodo.19270810)
+
 Geo2Gmsh is a Python-based workflow for automated geological mesh generation using Gmsh.
 
 It provides a streamlined solution for geoscientists conducting numerical simulations using the Finite Element Method (FEM) by enabling the construction of realistic geological meshes through high-level functions.
