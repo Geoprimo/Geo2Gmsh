@@ -331,9 +331,7 @@ Generated meshes are written to the outputs/ directory:
 * .vtk  visualization and simulation format
 
 
-Due to file size limitations on GitHub, these outputs are not distributed with the repository but are available for download and can be placed in the corresponding output directories
-
-[Zeono](https://doi.org/10.5281/zenodo.19270842)
+Due to file size limitations on GitHub, these outputs are not distributed with the repository but are available for download and can be placed in the corresponding output directories. Download from Zenodo (https://doi.org/10.5281/zenodo.19270842)
 
 
 If additional file formats (e.g., .exo) are required, the meshio package can be used to export meshes to other supported extensions.
