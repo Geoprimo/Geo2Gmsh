@@ -2,7 +2,7 @@
 
 
 
-[![DOI](https://zenodo.org/badge/1058315065.svg)](https://doi.org/10.5281/zenodo.19270810)
+**Geo2Gmsh** v.1.0 [![DOI](https://zenodo.org/badge/1058315065.svg)](https://doi.org/10.5281/zenodo.19270810)
 
 Geo2Gmsh is a Python-based workflow for automated geological mesh generation using Gmsh.
 
