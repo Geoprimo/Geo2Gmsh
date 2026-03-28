@@ -397,6 +397,8 @@ From the Anaconda Prompt. This script compares the generated mesh with the refer
 
 Due to file size limitations on GitHub, reference outputs are not distributed with the repository but are available for download and can be placed in the corresponding output directories. Although not required for execution, as checksum values are included in the validation script.
 
+<img src="images/checksum.png" alt="check example" width="1200"/>
+
 
 ## 
 
