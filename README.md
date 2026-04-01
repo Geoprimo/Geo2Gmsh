@@ -26,7 +26,15 @@ This tool is particularly relevant for applications in:
 
 <img src="docs/images/front.png" alt="cover" width="1200"/>
 
+To ensure computational reproducibility, Geo2Gmsh incorporates a checksum-based validation procedure. This mechanism allows users to verify that generated meshes are consistent across different systems and executions.
 
+After running the workflow, output files are automatically compared against reference results using hash-based checksums. This ensures that:
+
+* The mesh generation process is deterministic
+* Results are independent of the execution environment
+* Any discrepancies due to implementation or system differences are detected
+
+This reproducibility framework provides a robust mechanism for validating the integrity of the workflow and supports its use in scientific and engineering applications where consistency is critical.
 
 #### **🌍 Overview**
 
