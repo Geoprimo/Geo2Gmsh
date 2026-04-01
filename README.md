@@ -17,10 +17,10 @@ From a computational perspective, Geo2Gmsh leverages the scripting and API capab
 
 This tool is particularly relevant for applications in:
 
-Geothermal reservoir modeling
-Basin-scale thermal simulations
-Structural geology and fault system analysis
-Subsurface flow and transport modeling
+* Geothermal reservoir modeling;
+* Basin-scale thermal simulations;
+* Structural geology and fault system analysis;
+* Subsurface flow and transport modeling
 
 
 
