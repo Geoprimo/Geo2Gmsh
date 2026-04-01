@@ -4,13 +4,23 @@
 
 **Geo2Gmsh** v.1.0 [![DOI](https://zenodo.org/badge/1058315065.svg)](https://doi.org/10.5281/zenodo.19270810)
 
-Geo2Gmsh is a Python-based workflow for automated geological mesh generation using Gmsh.
+Geo2Gmsh is a modular Python-based workflow designed to bridge geoscientific datasets with advanced mesh generation capabilities provided by Gmsh. The tool enables the systematic construction of three-dimensional computational meshes from geological input data, including structured coordinate files, stratigraphic horizons, and fault geometries.
 
-It provides a streamlined solution for geoscientists conducting numerical simulations using the Finite Element Method (FEM) by enabling the construction of realistic geological meshes through high-level functions.
+The methodology implemented in Geo2Gmsh formalizes the transformation of discrete geological information into conforming volumetric meshes suitable for numerical simulation. In particular, the workflow:
 
+Automates the generation of 3D meshes from sparse or irregularly distributed geological data.
+Incorporates local mesh refinement strategies around key geological features such as wells, faults, and interfaces.
+Assigns physical group identifiers, ensuring compatibility with downstream numerical solvers (e.g., finite element or finite volume methods).
+Provides a reproducible and extensible framework for mesh construction in geoscientific applications.
 
+From a computational perspective, Geo2Gmsh leverages the scripting and API capabilities of Gmsh, a widely used tool for generating unstructured meshes in numerical modeling . By abstracting low-level meshing operations, the workflow reduces the barrier for geoscientists to construct high-quality meshes while maintaining flexibility for advanced users.
 
-Key features, including topography and geological interfaces, can be directly incorporated into the mesh, together with structural elements such as faults and wells. The proposed workflow streamlines mesh generation while lowering the barrier to entry for users with limited experience in mesh construction.
+This tool is particularly relevant for applications in:
+
+Geothermal reservoir modeling
+Basin-scale thermal simulations
+Structural geology and fault system analysis
+Subsurface flow and transport modeling
 
 
 
